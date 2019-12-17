@@ -63,8 +63,19 @@ footer ul li {
 .student-actions{
   border-top: 1px;
   padding-top: 5px;
+
 }
 
 .texts{
-  margin-top: 0;
+  margin-top: 0;  
+}
+.student-name{
+  font-weight: bold;
+  font-size:1.5em;
+
+}
+.student-body{
+ border-top: 1px solid black;
+ padding-top: 15px;
+ padding-bottom: 15px;
 }
