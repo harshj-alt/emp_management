@@ -1,0 +1,11 @@
+<h1>showing artical selected</h1>
+
+<P>
+  title: <%= @student.name %>
+</P>
+<p>
+  student's age: <%= @student.age %>
+</p>
+
+<%= link_to "edit this student's details", edit_student_path(@student) %> |
+<%= link_to "back to Student lists", students_path %>
