@@ -30,6 +30,7 @@ class StudentsController < ApplicationController
     #   byebug
     # render html: params[:student].inspect
     @student =Student.new(student_params)
+    @student.user=User.first
       if @student.save
         flash[:notice]="student is created"
         redirect_to student_path(@student)
