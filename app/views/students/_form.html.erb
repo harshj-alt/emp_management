@@ -1,11 +1,4 @@
-<% if @student.errors.any? %>
-<h2>the following errors prevented the student getting created </h2>
-  <ul>
-      <% @student.errors.full_messages.each do |msg| %>
-      <li> <%= msg %></li>
-      <% end %>
-  </ul>
-<% end %>
+<%= render 'shared/errors',obj: @student%>
 
 
 <div class='row'>

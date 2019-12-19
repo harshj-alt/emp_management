@@ -18,7 +18,7 @@ class StudentsController < ApplicationController
   def update
     
       if @student.update(student_params)
-        flash[:notice] = "Student was successfully updated"
+        flash[:success] = "Student was successfully updated"
         redirect_to student_path(@student)
       else 
         render 'edit'
@@ -32,7 +32,7 @@ class StudentsController < ApplicationController
     @student =Student.new(student_params)
     @student.user=User.first
       if @student.save
-        flash[:notice]="student is created"
+        flash[:success]="student is created"
         redirect_to student_path(@student)
       else
         render 'new'
@@ -43,7 +43,7 @@ class StudentsController < ApplicationController
   def destroy
     
     @student.destroy
-    flash[:notice] = "student is successfully deleted"
+    flash[:danger] = "student is successfully deleted"
 
     redirect_to students_path
   end 
