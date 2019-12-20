@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
   before_action :set_student,  only: [:edit, :update, :show, :destroy]
 
   def index 
-    @student= Student.all
+    @students= Student.paginate(page: params[:page])
   end 
 
 
