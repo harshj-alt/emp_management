@@ -20,7 +20,7 @@
   <hr>
   <%= simple_format(@student.age) %>
     <div class="student-actions">
-      <% if logged_in? && current_user == @student.user %>
+      <% if logged_in? && (current_user == @student.user || current_user.admin?) %>
       <%= link_to "Edit this student", edit_student_path(@student),class: "btn btn-xs btn-primary" %>
 
 <%
