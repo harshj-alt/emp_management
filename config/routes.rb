@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'login', to:'sessions#destroy'
   get 'signup', to: 'users#new'
+
+  resources :users, except: [:new]
   
   resources :employee_tables
   resources :students
