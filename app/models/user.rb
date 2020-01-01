@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  has_many :students
+  has_many :students, dependent: :destroy
   
   before_save {self.email = email.downcase}
 

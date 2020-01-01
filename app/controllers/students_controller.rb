@@ -2,6 +2,10 @@ class StudentsController < ApplicationController
 
   before_action :set_student,  only: [:edit, :update, :show, :destroy]
 
+  before_action :require_user, except: [:index, :show]
+
+  before_action :require_same_user, only: [:edit, :update, :destroy]
+
   def index 
     @students= Student.paginate(page: params[:page])
   end 
@@ -30,7 +34,7 @@ class StudentsController < ApplicationController
     #   byebug
     # render html: params[:student].inspect
     @student =Student.new(student_params)
-    @student.user=User.first
+    @student.user = current_user
       if @student.save
         flash[:success]="student is created"
         redirect_to student_path(@student)
@@ -62,6 +66,13 @@ class StudentsController < ApplicationController
     
     def student_params
       params.require(:student).permit(:name,:age,:city,:Address,:postal_code)
+    end
+    
+    def require_same_user
+      if current_user !=@student.user and !current_user.admin?
+        flash[:danger] ="you can edit or delete your own students"
+        redirect_to root_path
+      end
     end
   
   end
