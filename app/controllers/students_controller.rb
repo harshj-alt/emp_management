@@ -13,7 +13,11 @@ class StudentsController < ApplicationController
 
   def new 
     @student =Student.new
+
+    # render json: { html: render_to_string(partial: 'form') }
   end
+
+
 
   def edit
     

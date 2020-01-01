@@ -1,7 +1,6 @@
 <%= render 'shared/errors',obj: @student%>
 
-
-<div class='row'>
+<div class='row' id='newForm'>
   <div class='col-xs-12'>
     <%= form_for(@student, :html => {class: "form-horizontal", role: "form"}) do |f|%>
       <div class="form-group">
@@ -51,7 +50,7 @@
 
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <%= f.submit class: 'btn btn-primary btn-lg' %>
+            <%= f.submit class: 'btn btn-primary btn-lg', id:"btnsubmit" %>
           </div>
         </div>
     <% end %>
