@@ -16,3 +16,38 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+
+// $(document).ready(function(){
+//     $('#btnsubmit').click(function(){
+//         alert("success")
+
+//     });
+// });
+
+$(document).ready(function(){
+    $('#newForm').submit(function(event){
+        event.preventDefault();
+
+        var request_method=$(this).attr("method")
+        var form_data=$(this).serialize();
+
+        $ajax({
+            url:'/student/new',
+            type: request_method,
+            data: form_data,
+            dataType:"json",
+            success: function(data){
+                $(".response")(data.content);
+                if(data.response=="success")
+                {
+                    alert("record added successfully");
+                }
+            },  
+            error: function(data){
+                $(".response")("an error occured");
+            }
+        })
+    });
+});
